@@ -8,14 +8,14 @@ namespace FindTheSymmetricDifference
 {
     class SymmetricDifference
     {
-        public int[] SymmetricDifferenceMethod (List<int[]> inputList)
+        static public int[] SymmetricDifferenceMethod (List<int[]> inputList)
         {
             inputList = MakeArraysInListDistinct(inputList);
             List<int> longList = ConvertListOfArrayToList(inputList);
             int[] result = RemoveDuplicates(longList);
             return result;
         }
-        public List<int[]> MakeArraysInListDistinct(List<int[]> inputList)
+        static private List<int[]> MakeArraysInListDistinct(List<int[]> inputList)
         {
             List<int[]> distinctList = new();
             for (int i = 0; i < inputList.Count; i++)
@@ -24,7 +24,7 @@ namespace FindTheSymmetricDifference
             }
             return distinctList;
         }
-        public List<int> ConvertListOfArrayToList(List<int[]> inputList)
+        static private List<int> ConvertListOfArrayToList(List<int[]> inputList)
         {
             List<int> tempList = new();
             foreach (int[] item in inputList)
@@ -33,7 +33,7 @@ namespace FindTheSymmetricDifference
             }
             return tempList;
         }
-        public int[] RemoveDuplicates(List<int> inputList)
+        static private int[] RemoveDuplicates(List<int> inputList)
         {
             inputList = inputList.GroupBy(x => x)
                 .Where(g => g.Count() == 1)
